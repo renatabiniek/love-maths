@@ -52,8 +52,10 @@ function checkAnswer() {
 
     if (isCorrect) {
         alert('Hey! You got it right! :D');
+        incrementScore();
     } else {
         alert(`Awwww... you answered ${userAnswer}. The correct answer was ${calculatedAnswer[0]}!`);
+        incrementWrongAnswer();
     }
 
     runGame(calculatedAnswer[1]);
@@ -79,11 +81,25 @@ function calculateCorrectAnswer() {
     };
 }
 
+/**
+ * Gets the current score from dom and increments by 1
+ */
+
 function incrementScore() {
+
+    let oldScore = parseInt(document.getElementById('score').innerHTML);
+    document.getElementById('score').innerHTML = ++oldScore;
 
 }
 
+/**
+ * Gets the current tally of incorrect answers from dom and increments by 1
+ */
+
 function incrementWrongAnswer() {
+
+    let oldScore = parseInt(document.getElementById('incorrect').innerHTML);
+    document.getElementById('incorrect').innerHTML = ++oldScore;
 
 }
 
